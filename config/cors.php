@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => [ENV("APP_FRONTEND_URL"), 'http://default.it'],
 
     'allowed_origins_patterns' => [],
 
