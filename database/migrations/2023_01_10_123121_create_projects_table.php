@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string("slug")->nullable();
             $table->string("author")->nullable();
             $table->date("deadline")->nullable();
+            $table->string("link")->nullable();
             $table->timestamps();
         });
     }

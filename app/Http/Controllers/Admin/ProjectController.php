@@ -54,6 +54,7 @@ class ProjectController extends Controller
         $newProject->cover_image = Storage::disk('public')->put('projects_img', $request->cover);
         $newProject->author = $request["author"];
         $newProject->deadline = $request["deadline"];
+        $newProject->link = $request["link"];
         $newProject->save();
 
         $newProject->technologies()->attach($request->technologies);
@@ -109,6 +110,7 @@ class ProjectController extends Controller
                 'cover_image' => Storage::disk('public')->put('projects_img', $request->cover),
                 'author' => $request['author'],
                 'deadline' => $request['deadline'],
+                'link' => $request['link'],
             ];
             
             $project->update($data);

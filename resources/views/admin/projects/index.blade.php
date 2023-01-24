@@ -9,10 +9,12 @@
                 <tr>
                     <th scope="col">id</th>
                     <th scope="col">title</th>
+                    <th scope="col">slug</th>
                     <th scope="col">cathegory</th>
                     <th scope="col">cover image</th>
                     <th scope="col">author</th>
                     <th scope="col">deadline</th>
+                    <th scope="col">link</th>
                     <th scope="col">actions</th>
                 </tr>
             </thead>
@@ -21,10 +23,12 @@
                     <tr>
                         <td scope="row">{{$project->id}}</td>
                         <td>{{$project->title}}</td>
+                        <td>{{$project->slug}}</td>
                         <td>{{$project->category_id}}</td>
                         <td><img src="{{asset('storage/' . $project->cover_image)}}" alt="{{$project->title}}"></td>
                         <td>{{$project->author}}</td>
                         <td>{{$project->deadline}}</td>
+                        <td>{{$project->link}}</td>
                         <td>
                             <a href="{{route('projects.show', $project->id)}}" class="btn bg-primary text-white w-100 my-2">View</a>    
                             

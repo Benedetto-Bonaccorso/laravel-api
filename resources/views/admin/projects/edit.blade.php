@@ -39,6 +39,8 @@
             <input type="text" name="author" id="author" value="{{$project->author}}">
             <label for="deadline">deadline</label>
             <input type="text" name="deadline" id="deadline" value="{{$project->deadline}}">
+            <label for="link">link</label>
+            <input type="link" name="link" id="link" value="{{$project->link}}">
 
             <p>Select technologies used:</p>
             @foreach ($technologies as $technology)

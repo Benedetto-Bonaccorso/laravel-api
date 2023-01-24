@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Project extends Model
 {
     use HasFactory;
-    protected $fillable = ["title", "slug", "author", "deadline", "cover_image", 'category_id'];
+    protected $fillable = ["title", "slug", "author", "deadline", "cover_image", 'category_id', 'link'];
 
     public static function generateSlug($title)
     {

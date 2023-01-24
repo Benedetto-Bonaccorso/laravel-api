@@ -35,6 +35,8 @@
             <input type="text" title="author" name="author" id="author" value="{{old('author')}}">
             <label for="deadline">deadline</label>
             <input type="text" title="author" name="deadline" id="deadline" value="{{old('deadline')}}">
+            <label for="link">link</label>
+            <input type="text" title="link" name="link" id="link" value="{{old('link')}}">
 
             <p>Select technologies used:</p>
             @foreach ($technologies as $technology)

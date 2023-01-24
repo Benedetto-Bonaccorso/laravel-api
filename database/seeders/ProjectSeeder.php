@@ -24,6 +24,7 @@ class ProjectSeeder extends Seeder
             $project->cover_image = 'placeholders/download.jpg'; // . $faker->image('storage/app/public/placeholders', 600, 300, 'Post', false, false);
             $project->author = $faker->name();
             $project->deadline = $faker->date();
+            $project->link = $faker->text(200);
             $project->save();
         }
     }
