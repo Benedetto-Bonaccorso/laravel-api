@@ -10,6 +10,7 @@ use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class ProjectController extends Controller
 {
@@ -45,20 +46,32 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
+        
+        $data = $request->all();
 
-        //dd($request->technologies);
+        $validator = Validator::make($data, [
+            "title" => "required|unique:projects,title|min:5|max:100",
+            "slug" => "nullable",
+            "cover_image" => "nullable|image|max:300",
+            "author" => "nullable|max:255",
+            "deadline" => "nullable",
+            "link" => "nullable",
+            'category_id' => 'nullable|exists:categories,id',
+        ]);
+
+        if($validator->fails()){
+            return response()->json([
+                "success" => false,
+                "message" => $validator->errors()
+            ]);
+        }
 
         $newProject = new Project();
-        $newProject->title = $request["title"];
-        $newProject->category_id = $request["category_id"];
-        $newProject->cover_image = Storage::disk('public')->put('projects_img', $request->cover);
-        $newProject->author = $request["author"];
-        $newProject->deadline = $request["deadline"];
-        $newProject->link = $request["link"];
+        $newProject->fill($data);
         $newProject->save();
 
         $newProject->technologies()->attach($request->technologies);
-  
+
         return to_route("projects.index");
         
     }

@@ -24,23 +24,27 @@ class StoreProjectRequest extends FormRequest
     public function rules()
     {
         return [
+            /*
             "title" => "required|unique:projects,title|min:5|max:100",
             "slug" => "nullable",
             "cover_image" => "nullable|image|max:300",
             "author" => "nullable|max:255",
             "deadline" => "nullable",
             'category_id' => 'nullable|exists:categories,id',
+            */
         ];
     }
 
     public function messages()
     {
         return[
+            /*
             "title.required" => "A title is required",
             "title.unique" => "This title is already present in your portfolio",
             "title.min" => "A title must contain at least 5 characters",
             "title.max" => "titles have a max of 100 characters",
             "author.max" => "titles have a max of 255 characters",
+            */
         ];
     }
 }
